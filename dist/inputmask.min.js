@@ -3140,13 +3140,15 @@ var EventHandlers = exports.EventHandlers = {
         (0, _inputHandling.writeBuffer)(input, buffer, undefined, e);
       }
       nptValue = inputmask._valueGet(true);
-      if (nptValue.includes('0.00')) {
-        inputmask.undoValue = nptValue;
-        $input.trigger("change");
-      } else if (inputmask.undoValue !== nptValue) {
-        if (nptValue != "" || inputmask.undoValue != _positioning.getBufferTemplate.call(inputmask).join("") || inputmask.undoValue == _positioning.getBufferTemplate.call(inputmask).join("") && inputmask.maskset.validPositions.length > 0) {
+      if (e.currentTarget.value !== e.currentTarget.defaultValue) {
+        if (nptValue.includes('0.00')) {
           inputmask.undoValue = nptValue;
           $input.trigger("change");
+        } else if (inputmask.undoValue !== nptValue) {
+          if (nptValue != "" || inputmask.undoValue != _positioning.getBufferTemplate.call(inputmask).join("") || inputmask.undoValue == _positioning.getBufferTemplate.call(inputmask).join("") && inputmask.maskset.validPositions.length > 0) {
+            inputmask.undoValue = nptValue;
+            $input.trigger("change");
+          }
         }
       }
     }

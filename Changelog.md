@@ -6,6 +6,7 @@
 - Add exports field in package.json #2690
 
 ### Updates
+- Only emit change event when current value is not equal to default value.
 - datetime alias
   - add support for mmm & mmmm #2751 (WIP)
 - Update IP extension to support greedy option. #2749
